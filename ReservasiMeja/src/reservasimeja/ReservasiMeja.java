@@ -17,6 +17,7 @@ public static void main(String[] args) {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new LoginPanel());
         frame.setVisible(true);
+        System.out.println("hai tst boss");
     }
 }
     

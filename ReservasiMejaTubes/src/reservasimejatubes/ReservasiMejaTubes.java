@@ -36,8 +36,6 @@ public class ReservasiMejaTubes extends JFrame {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
         
-        System.out.println("dimas putra");
-        
         // Inisialisasi Panel
         loginPanel = new LoginPanel(this);
         menuPanel = new MenuPanel(this);

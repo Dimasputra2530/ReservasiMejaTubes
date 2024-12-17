@@ -24,7 +24,7 @@ public class ReservasiMejaTubes extends JFrame {
     AdminPanel adminPanel;
     PelangganPanel pelangganPanel;
     ReservasiPanel reservasiPanel;
-
+    
     public ReservasiMejaTubes() {
         // Membuat JFrame utama
         frame = new JFrame("Reservasi Meja Tubes");
@@ -35,7 +35,9 @@ public class ReservasiMejaTubes extends JFrame {
         // Mengatur layout
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
-
+        
+        System.out.println("dimas putra");
+        
         // Inisialisasi Panel
         loginPanel = new LoginPanel(this);
         menuPanel = new MenuPanel(this);

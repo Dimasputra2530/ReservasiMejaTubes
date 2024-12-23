@@ -15,8 +15,8 @@ public static void main(String[] args) {
         JFrame frame = new JFrame("Aplikasi Reservasi Restoran");
         frame.setSize(400, 250);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(new LoginPanel());
-        frame.setVisible(true);
+        Login loginFrame = new Login();
+        loginFrame.setVisible(true);
         System.out.println("hai tst boss");
     }
 }

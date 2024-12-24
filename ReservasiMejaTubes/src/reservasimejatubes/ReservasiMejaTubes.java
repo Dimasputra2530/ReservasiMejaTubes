@@ -8,70 +8,31 @@ package reservasimejatubes;
  *
  * @author Dimas
  */
+import java.sql.*;
 
-import java.awt.CardLayout;
-import javax.swing.*;
 
-//main
-public class ReservasiMejaTubes extends JFrame {
-    JFrame frame;
-    CardLayout cardLayout;
-    JPanel mainPanel;
 
-    // Deklarasi Panel
-    LoginPanel loginPanel;
-    MenuPanel menuPanel;
-    AdminPanel adminPanel;
-    PelangganPanel pelangganPanel;
-    ReservasiPanel reservasiPanel;
-    
-    public ReservasiMejaTubes() {
-        // Membuat JFrame utama
-        frame = new JFrame("Reservasi Meja Tubes");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-        frame.setLocationRelativeTo(null);
-
-        // Mengatur layout
-        cardLayout = new CardLayout();
-        mainPanel = new JPanel(cardLayout);
-        
-        // Inisialisasi Panel
-        loginPanel = new LoginPanel(this);
-        menuPanel = new MenuPanel(this);
-        adminPanel = new AdminPanel(this);
-        pelangganPanel = new PelangganPanel(this);
-        reservasiPanel = new ReservasiPanel(this);
-
-        // Menambahkan Panel ke mainPanel
-        mainPanel.add(loginPanel, "Login");
-        mainPanel.add(menuPanel, "Menu");
-        mainPanel.add(adminPanel, "Admin");
-        mainPanel.add(pelangganPanel, "Pelanggan");
-        mainPanel.add(reservasiPanel, "Reservasi");
-
-        // Menambahkan ke JFrame
-        frame.add(mainPanel);
-        cardLayout.show(mainPanel, "Login"); // Panel awal: LoginPanel
-        frame.setVisible(true);
-    }
-
-    // Method untuk berpindah panel
-    public void showPanel(String panelName) {
-        cardLayout.show(mainPanel, panelName);
-    }
-
+public class ReservasiMejaTubes{
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new ReservasiMejaTubes());
-    }
+//        new TestPanels().setVisible(true);
+        new LoginPanel().setVisible(true);
+        ReservasiMejaTubes app = new ReservasiMejaTubes();
 
-    void AdminPanel(String admin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (!app.loadData()) {
+            System.out.println("Failed to load data. Exiting program.");
+            return; 
+        }
     }
-
-    void PelangganPanel(String pelanggan) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public boolean loadData() {
+        try {
+            Connection connection = DatabaseConnection.getConnection();
+            Statement statement = connection.createStatement();
+            System.out.println("Connected to the database.");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
-
-  

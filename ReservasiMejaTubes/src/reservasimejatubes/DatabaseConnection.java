@@ -10,7 +10,7 @@ package reservasimejatubes;
  */
 import java.sql.*;
 
-public class DatabaseConnetion {
+public class DatabaseConnection {
     private static final String URL = "jdbc:mysql://localhost:3306/reservasimeja";
     private static final String USER = "root";
     private static final String PASSWORD = "";
